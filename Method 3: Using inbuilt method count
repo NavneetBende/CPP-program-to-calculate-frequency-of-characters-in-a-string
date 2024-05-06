@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    string str = "PrepInsta is the best";
+    
+    // checking frequency of each character in ASCII Table
+    // ASCII has 256 in modern systems
+    for(int i = 1; i < 256; i++)
+    {
+        int ch = (char) i;
+        
+        // inbuilt function to calculate count
+        int freq = count(str.begin(), str.end(), ch);
+        
+        // only print if frequency > 0
+        if(freq > 0){
+            cout << (char) i << ": ";
+            cout << freq << endl;
+        }
+        
+    }
+}
