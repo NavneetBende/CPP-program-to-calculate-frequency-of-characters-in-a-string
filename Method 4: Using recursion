@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// recursive function to get frequency of a character in a string
+int getFrequency(char ch, string str)
+{
+    // base case
+    // if string length becomes 0
+    if (str.length() == 0)
+        return 0;
+    
+    int count = 0;
+ 
+    // check if the first character of
+    // the given string == ch or not
+    if (str[0] == ch)
+        count++;
+ 
+    // calling recursive function to find count of ch
+    // in string by sending next index getting count
+    // from index 1 to the end of the string
+    count += getFrequency(ch, str.substr(1));
+ 
+    return count;
+}
+ 
+int main(){
+    string str = "PrepInsta is the best";
+    
+    // checking frequency of each character in ASCII Table
+    // ASCII has 256 in modern systems
+    for(int i = 1; i < 256; i++)
+    {
+        int result = getFrequency((char) i, str);
+        
+        // only print if frequency > 0
+        if(result > 0){
+            cout << (char) i << ": ";
+            cout << result << endl;
+        }
+        
+    }
+}
